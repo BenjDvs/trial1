@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: bisque;
+        }
+
+        .container .card {
+            width: 50%;
+            height: 50%;
+            background-color: white;
+            margin: auto;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Profile Page</h2>
+            <button onclick="logOut()" style="float: right;">Logout</button>
+            <hr>
+            <h3>Welcome</h3>
+            <h4>Name:
+                <script>
+
+                    //RETRIEVE CURRENT SESSION "name" FROM THE LOCAL STORAGE
+                    document.write(localStorage.getItem("name"));
+                </script>
+            </h4>
+            <h4>Your Email:
+                <script>
+                    document.write(localStorage.getItem("email"));
+                </script>
+            </h4>
+            <h4>Your Password:
+                <script>
+                    document.write(localStorage.getItem("password"));
+                </script>
+            </h4>
+        </div>
+    </div>
+</body>
+
+<script>
+    //LOGOUT
+    function logOut() {
+
+        //REMOVE ENTRIES FOR "NAME" AND "EMAIL" FROM LOCAL STORAGE
+        localStorage.removeItem("name");
+        localStorage.removeItem("email");
+        localStorage.removeItem("password");
+
+        //REDIRECT TO LOGIN PAGE
+        window.location.href = "login.html"
+    }
+</script>
+
+</html>
